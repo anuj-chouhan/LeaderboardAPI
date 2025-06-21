@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anuj\\Desktop\\Backend Project\\LeaderboardAPI\\LeaderboardAPI\\LeaderboardAPI.csproj": {}
+    "C:\\Users\\Anuj\\Desktop\\Backend Project\\anuj-chouhan\\LeaderboardAPI\\LeaderboardAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anuj\\Desktop\\Backend Project\\LeaderboardAPI\\LeaderboardAPI\\LeaderboardAPI.csproj": {
+    "C:\\Users\\Anuj\\Desktop\\Backend Project\\anuj-chouhan\\LeaderboardAPI\\LeaderboardAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anuj\\Desktop\\Backend Project\\LeaderboardAPI\\LeaderboardAPI\\LeaderboardAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Anuj\\Desktop\\Backend Project\\anuj-chouhan\\LeaderboardAPI\\LeaderboardAPI.csproj",
         "projectName": "LeaderboardAPI",
-        "projectPath": "C:\\Users\\Anuj\\Desktop\\Backend Project\\LeaderboardAPI\\LeaderboardAPI\\LeaderboardAPI.csproj",
+        "projectPath": "C:\\Users\\Anuj\\Desktop\\Backend Project\\anuj-chouhan\\LeaderboardAPI\\LeaderboardAPI.csproj",
         "packagesPath": "C:\\Users\\Anuj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anuj\\Desktop\\Backend Project\\LeaderboardAPI\\LeaderboardAPI\\obj\\",
+        "outputPath": "C:\\Users\\Anuj\\Desktop\\Backend Project\\anuj-chouhan\\LeaderboardAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

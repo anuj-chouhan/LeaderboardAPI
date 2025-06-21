@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LeaderboardAPI</name>
+    </assembly>
+    <members>
+        <member name="M:LeaderboardAPI.Controllers.PlayersController.Register(LeaderboardAPI.Models.RegisterRequest)">
+            <summary>
+            Registers a new player or checks if the username is available.
+            </summary>
+            <param name="request">Contains the desired username.</param>
+            <returns>Success or availability status, and player details if created.</returns>
+        </member>
+        <member name="M:LeaderboardAPI.Controllers.PlayersController.UpdateScore(System.String,LeaderboardAPI.Models.UpdateScoreValue)">
+            <summary>
+            Updates a player's score if the new score is higher.
+            </summary>
+            <param name="id">The unique player ID.</param>
+            <param name="request">New score value.</param>
+            <returns>Success message or error if player is not found.</returns>
+        </member>
+        <member name="M:LeaderboardAPI.Controllers.PlayersController.GetPlayerData(LeaderboardAPI.Models.GetPlayerDataRequest)">
+            <summary>
+            Retrieves player data and their current rank.
+            </summary>
+            <param name="request">Contains the player's unique ID.</param>
+            <returns>Player info including score and rank or error if not found.</returns>
+        </member>
+        <member name="M:LeaderboardAPI.Controllers.PlayersController.GetLeaderboard">
+            <summary>
+            Gets the top 10 players ranked by score.
+            </summary>
+            <returns>A list of top players with username, score, and rank.</returns>
+        </member>
+        <member name="T:LeaderboardAPI.Models.RegisterRequest">
+            <summary>Request to register a new player.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.RegisterRequest.Username">
+            <summary>Desired unique username.</summary>
+            <example>Player123</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.GetPlayerDataRequest">
+            <summary>Request to fetch player data by user ID.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.GetPlayerDataRequest.UserId">
+            <summary>Unique identifier for the player.</summary>
+            <example>abc123</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.UpdateScoreValue">
+            <summary>Request to update a player's score.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.UpdateScoreValue.NewScore">
+            <summary>The new score to update for the player.</summary>
+            <example>2000</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.PlayerResponse">
+            <summary>Response containing detailed player information and rank.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.PlayerResponse.UserId">
+            <example>abc123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.PlayerResponse.Username">
+            <example>Player123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.PlayerResponse.Score">
+            <example>1500</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.PlayerResponse.Rank">
+            <example>3</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.LeaderboardEntry">
+            <summary>A single leaderboard entry.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.LeaderboardEntry.Rank">
+            <example>1</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.LeaderboardEntry.Username">
+            <example>TopPlayer</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.LeaderboardEntry.Score">
+            <example>2500</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.Player">
+            <summary>Internal player model used for tracking data.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.Player.Id">
+            <example>abc123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.Player.Username">
+            <example>Player123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.Player.Score">
+            <example>1500</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.RegisterResponse">
+            <summary>Response after registering a player.</summary>
+        </member>
+        <member name="P:LeaderboardAPI.Models.RegisterResponse.Available">
+            <example>true</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.RegisterResponse.UserId">
+            <example>abc123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.RegisterResponse.Username">
+            <example>Player123</example>
+        </member>
+        <member name="P:LeaderboardAPI.Models.RegisterResponse.Score">
+            <example>0</example>
+        </member>
+        <member name="T:LeaderboardAPI.Models.LeaderboardResponse">
+            <summary>Response containing the top leaderboard players.</summary>
+        </member>
+    </members>
+</doc>
