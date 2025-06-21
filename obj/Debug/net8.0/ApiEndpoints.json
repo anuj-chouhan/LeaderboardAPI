@@ -1,0 +1,107 @@
+[
+  {
+    "ContainingType": "LeaderboardAPI.Controllers.PlayersController",
+    "Method": "GetPlayerData",
+    "RelativePath": "players/getPlayerData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LeaderboardAPI.Models.GetPlayerDataRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LeaderboardAPI.Models.PlayerResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Player Management"
+    ]
+  },
+  {
+    "ContainingType": "LeaderboardAPI.Controllers.PlayersController",
+    "Method": "GetLeaderboard",
+    "RelativePath": "players/leaderboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "LeaderboardAPI.Models.LeaderboardResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Player Management"
+    ]
+  },
+  {
+    "ContainingType": "LeaderboardAPI.Controllers.PlayersController",
+    "Method": "UpdateScore",
+    "RelativePath": "players/players/{id}/score",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "LeaderboardAPI.Models.UpdateScoreValue",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Player Management"
+    ]
+  },
+  {
+    "ContainingType": "LeaderboardAPI.Controllers.PlayersController",
+    "Method": "Register",
+    "RelativePath": "players/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LeaderboardAPI.Models.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LeaderboardAPI.Models.RegisterResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Player Management"
+    ]
+  }
+]

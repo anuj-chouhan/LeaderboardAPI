@@ -1,0 +1,285 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "LeaderboardAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/players/register": {
+      "post": {
+        "tags": [
+          "Player Management"
+        ],
+        "summary": "Registers a new player or checks if the username is available.",
+        "requestBody": {
+          "description": "Contains the desired username.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/players/{id}/score": {
+      "put": {
+        "tags": [
+          "Player Management"
+        ],
+        "summary": "Updates a player's score if the new score is higher.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique player ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New score value.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScoreValue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScoreValue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScoreValue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/players/getPlayerData": {
+      "post": {
+        "tags": [
+          "Player Management"
+        ],
+        "summary": "Retrieves player data and their current rank.",
+        "requestBody": {
+          "description": "Contains the player's unique ID.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetPlayerDataRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetPlayerDataRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetPlayerDataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/leaderboard": {
+      "get": {
+        "tags": [
+          "Player Management"
+        ],
+        "summary": "Gets the top 10 players ranked by score.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaderboardResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetPlayerDataRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier for the player.",
+            "nullable": true,
+            "example": "abc123"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to fetch player data by user ID."
+      },
+      "LeaderboardEntry": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "TopPlayer"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2500
+          }
+        },
+        "additionalProperties": false,
+        "description": "A single leaderboard entry."
+      },
+      "LeaderboardResponse": {
+        "type": "object",
+        "properties": {
+          "leaderboard": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaderboardEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response containing the top leaderboard players."
+      },
+      "PlayerResponse": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true,
+            "example": "abc123"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "Player123"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1500
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response containing detailed player information and rank."
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Desired unique username.",
+            "nullable": true,
+            "example": "Player123"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to register a new player."
+      },
+      "RegisterResponse": {
+        "type": "object",
+        "properties": {
+          "available": {
+            "type": "boolean",
+            "example": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true,
+            "example": "abc123"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "Player123"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32",
+            "example": 0
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response after registering a player."
+      },
+      "UpdateScoreValue": {
+        "type": "object",
+        "properties": {
+          "newScore": {
+            "type": "integer",
+            "description": "The new score to update for the player.",
+            "format": "int32",
+            "example": 2000
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to update a player's score."
+      }
+    }
+  }
+}

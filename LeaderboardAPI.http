@@ -1,0 +1,32 @@
+@host = http://localhost:5288
+
+### Register a new player
+POST {{host}}/players/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "Player123"
+}
+
+### Update player score (only if new score is higher)
+PUT {{host}}/players/REPLACE_WITH_USER_ID/score
+Content-Type: application/json
+Accept: application/json
+
+{
+  "newScore": 1600
+}
+
+### Get player data with rank
+POST {{host}}/players/getPlayerData
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": "REPLACE_WITH_USER_ID"
+}
+
+### Get top 10 players
+GET {{host}}/players/leaderboard
+Accept: application/json
